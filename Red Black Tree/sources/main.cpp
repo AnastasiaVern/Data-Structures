@@ -1,7 +1,6 @@
 // Red-Black BST.cpp: определяет точку входа для консольного приложения.
-//
-#include "stdafx.h"
-#include "RedBlackTree.h"
+
+#include "RBTree.hpp"
 #include <string>
 #include <chrono>
 
