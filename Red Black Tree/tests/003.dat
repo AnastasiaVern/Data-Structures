@@ -1,0 +1,14 @@
+add 12
+add 10
+add 2 34
+delete 8
+add 5 20
+add 3 22
+add 18 23
+delete 18
+delete 5
+delete 3
+delete 2
+print
+max
+min
