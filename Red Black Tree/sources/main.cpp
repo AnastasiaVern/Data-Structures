@@ -110,13 +110,13 @@ int main(int argc, char* argv[])
 				{
 
 					int it=mytree.findMin();
-					if (it) fout << it<<std::endl;
+					if (it!=false) fout << it<<std::endl;
 					else fout << "error"<<std::endl;
 				}
 				if (text == "max")
 				{
 					int it=mytree.findMax();
-					if (it) fout << it << std::endl;
+					if (it!=false) fout << it << std::endl;
 					else fout << "error" << std::endl;
 				}
 				if (text == "inorder")
