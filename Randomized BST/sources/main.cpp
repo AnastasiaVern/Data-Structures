@@ -1,6 +1,4 @@
-// Randomized BST.cpp: определяет точку входа для консольного приложения.
-#include "stdafx.h"
-#include "RBST.h"
+#include "RBST.hpp"
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -11,8 +9,8 @@ int main(int argc, char* argv[])
 	std::string text;
 	std::string key;
 	std::string value;
-	std::ifstream fin("commands.txt");
-	std::ofstream fout("resultRBST.txt");
+	//std::ifstream fin("commands.txt");
+	std::ofstream fout("result.txt");
 	std::ofstream fout_("runtimeRBST.txt");
 	bool flag = true;
 
@@ -27,6 +25,9 @@ int main(int argc, char* argv[])
 	int counter1 = 0;
 	int counter2 = 0;
 	int counter3 = 0;
+	unsigned int sum1 = 0;
+	unsigned int sum2 = 0;
+	unsigned int sum3 = 0;
 	auto now1 = std::chrono::high_resolution_clock::now();
 	auto now2 = std::chrono::high_resolution_clock::now();
 	auto now3 = std::chrono::high_resolution_clock::now();
@@ -63,6 +64,7 @@ int main(int argc, char* argv[])
 							now1 = std::chrono::high_resolution_clock::now();
 							mytree.insert(atoi(key.c_str()), atoi(value.c_str()));
 							elapsed1 = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - now1);
+							sum1 += elapsed1.count();
 						}
 						else  fout << "error" << std::endl;
 					}
@@ -80,6 +82,7 @@ int main(int argc, char* argv[])
 						now2 = std::chrono::high_resolution_clock::now();
 						bool it = mytree.remove(atoi(key.c_str()));
 						elapsed2 = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - now2);
+						sum2 += elapsed2.count();
 						if (it == true) { ; }
 						else fout << "error" << std::endl;
 					}
@@ -113,31 +116,38 @@ int main(int argc, char* argv[])
 						now3 = std::chrono::high_resolution_clock::now();
 						int it = mytree.find(atoi(key.c_str()));
 						elapsed3 = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - now3);
+						sum3 += elapsed3.count();
 						if (it) fout << it << std::endl;
 						else fout << "error" << std::endl;
 					}
-					else std::cout << "error" << std::endl;
+					else fout << "error" << std::endl;
 				}
 				if (text == "min")
 				{
-					mytree.findMin();
+					int it = mytree.findMin();
+					if (it != false) fout << it << std::endl;
+					else fout << "error" << std::endl;
 				}
 				if (text == "max")
 				{
-					mytree.findMax();
+					int it = mytree.findMax();
+					if (it != false) fout << it << std::endl;
+					else fout << "error" << std::endl;
 				}
-				
 				if (!key.empty())	key.clear();
 				if (!value.empty()) value.clear();
 				flag = true;
 			}
 
-			if (counter1) fout_ << "duration of insertion: " << elapsed1.count()*counter1 << "ns.\n";
-			if (counter2) fout_ << "duration of deletion: " << elapsed2.count()*counter2 << "ns. \n";
-			if (counter3) fout_ << "duration of searching: " << elapsed3.count()*counter3 << "ns. \n";
+			if (counter1) fout_ << "average insertion time: " << sum1 / counter1 << "ns.\n";
+			if (counter2) fout_ << "average deletion time: " << sum2 / counter2 << "ns. \n";
+			if (counter3) fout_ << "average searching time: " << sum3 / counter3 << "ns. \n";
 		}
 	}
 	system("pause");
 	return 0;
+
+
+
 }
 
