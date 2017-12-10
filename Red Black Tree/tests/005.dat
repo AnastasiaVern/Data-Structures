@@ -234,22 +234,22 @@ add 718 503
 add 867 865
 add 938 881
 add 257 750
-find 286
-find 718
-find 316
-find 481
-find 472
-find 313
-find 169
-find 774
-find 84
-find 828
-find 912
-find 177
-find 42
-find 465
-find 676
-find 832
-find 2
-find 3
-find 4
+search 286
+search 718
+search 316
+search 481
+search 472
+search 313
+search 169
+search 774
+search 84
+search 828
+search 912
+search 177
+search 42
+search 465
+search 676
+search 832
+search 2
+search 3
+search 4
