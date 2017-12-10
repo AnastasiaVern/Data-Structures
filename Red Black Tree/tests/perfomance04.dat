@@ -133,7 +133,6 @@ delete 700
 delete 330
 delete 900
 delete 850
-delete 2000
 delete 1500
 delete 10
 delete 20
@@ -141,8 +140,6 @@ delete 440
 delete 500
 delete 70
 delete 90
-delete 95
-delete 1780
 delete 620
 delete 680
 delete 490
