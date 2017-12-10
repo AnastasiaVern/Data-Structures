@@ -289,6 +289,7 @@ int RBTree::findMax()
 	if (max != nil) {
 		return max->key;
 	}
+	else return false;
 };
 node* RBTree::findMax(node *&p) //ищет максимальный элемент в дереве р
 {
@@ -307,6 +308,7 @@ int RBTree::findMin()
 	if (min != nil) {
 		return min->key;
 	}
+	else return false;
 }
 node* RBTree::findMin(node *&p)  //ищет минимальный элемент в дереве р
 {
