@@ -15,10 +15,10 @@ int main(int argc, char* argv[])
 	bool flag = true;
 
 	RBST mytree;
-	if (argc != 2)  return 1;
+	if (argc != 3)  return 1;
 	else {
 		std::ifstream fin(argv[1]);
-
+	        std::ofstream fout(argv[2]);
 		if (!fin.is_open())
 		std::cout << "Could not open file\n";
 		else {
