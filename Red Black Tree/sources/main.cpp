@@ -1,5 +1,3 @@
-// Red-Black BST.cpp: определяет точку входа для консольного приложения.
-
 #include "RBTree.hpp"
 #include <string>
 #include <chrono>
@@ -10,14 +8,14 @@ int main(int argc, char* argv[])
 	std::string text;
 	std::string key;
 	std::string value;
-	//std::ifstream fin("commands.txt");
 	std::ofstream fout("resultRedBlackTree.txt");
 	std::ofstream fout_("runtime.txt");
 
 	
-	if (argc != 2)  return 1;
+	if (argc != 3)  return 1;
 	else {
 		std::ifstream fin(argv[1]);
+	        std::ofstream fout(argv[2]);
 
 		if (!fin.is_open())
 			std::cout << "Could not open file\n";
