@@ -2,16 +2,6 @@
 #include <iostream>
 #include <queue>
 
-void RBTree::transplant(node*& u, node*& v)
-{
-    if (u->parent == nil)
-        root = v;
-    else if (u == u->parent->left)
-        u->parent->left = v;
-    else
-        u->parent->right = v;
-    v->parent = u->parent;
-}
 void RBTree::leftrotate(node* p) //поворот дерева влево
 {
     node* y = p->right;
@@ -143,38 +133,6 @@ bool RBTree::remove(int k)
     }
     else
         return 1;
-}
-node* RBTree::remove(node*& p)
-{
-    node* y = p;
-    node* x;
-    int original_color = y->color;
-    if (p->left == nil) {
-        x = p->right;
-        transplant(p, p->right);
-    }
-    else if (p->right == nil) {
-        x = p->left;
-        transplant(p, p->left);
-    }
-    else {
-        y = findMin(p->right);
-        x = y->right;
-        if (y->parent == p)
-            x->parent = y;
-        else {
-            transplant(y, y->right);
-            y->right = p->right;
-            y->right->parent = y;
-        }
-        transplant(p, y);
-        y->left = p->left;
-        y->left->parent = y;
-        y->color = p->color;
-    }
-    if (original_color == BLACK)
-        remove_fixup(x);
-    return y;
 }
 void RBTree::rbDelete(node*& z)
 {
