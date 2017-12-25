@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
 						elapsed2 = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - now2);
 						sum2 += elapsed2.count();
 						if (it == 0) { ; } 
-						else fout << "error" <<std::endl;
+						//else fout << "error" <<std::endl;
 					}
 					else fout << "error" << std::endl;
 				}
