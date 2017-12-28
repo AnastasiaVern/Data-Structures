@@ -126,13 +126,17 @@ node* RBTree::successor(node*& x)
 }
 bool RBTree::remove(int k)
 {
-    node* p = find(root, k);
-    if (p != nil) {
-        rbDelete(p);
-        return 0;
-    }
-    else
-        return 1;
+    node *p = find(root, k);
+	if (p == root) 
+	{
+		rbDelete(p); return 0;
+	}
+	else if (p != nil)
+	{
+		rbDelete(p); 
+		return 0; 
+	}
+	else return 1; 
 }
 void RBTree::rbDelete(node*& z)
 {
