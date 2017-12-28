@@ -9,13 +9,21 @@
 
 Файл с командами может содержать следующие команды:
 add [key] [data]
+---
 delete [key]
+---
 print
+---
 search [key]
+---
 max
+---
 min
+---
 postorder
+---
 preorder
+---
 inorder
-
+---
 где key, data - целые числа. 
